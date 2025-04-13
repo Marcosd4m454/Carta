@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Para Camille</title>
-  <p style="max-width: 600px; margin: 0 auto 30px; font-size: 1.2em; text-align: center;">
-  Camille,<br><br>
-  Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso. Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando. Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida. Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.<br><br>
-  Isso aqui é só pra você saber que eu me importo. E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.<br><br>
-  — Pedro
-  </p>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 20px;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #ffe6f0;
       color: #333;
       text-align: center;
@@ -21,7 +16,26 @@
 
     h1 {
       font-size: 2em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .mensagem {
+      background-color: #fff0f5;
+      border-radius: 16px;
+      padding: 25px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: justify;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      font-size: 1.1em;
+    }
+
+    .mensagem p {
+      margin: 0 0 20px;
+    }
+
+    .mensagem strong {
+      font-weight: 600;
     }
 
     .fotos {
@@ -54,19 +68,33 @@
 <body>
   <h1>Para Camille</h1>
 
+  <div class="mensagem">
+    <p><strong>Camille,</strong></p>
+    <p>
+      Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso.
+      Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando.
+      Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida.
+      Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.
+    </p>
+    <p>
+      Isso aqui é só pra você saber que eu me importo.
+      E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.
+    </p>
+    <p style="text-align: right;">— Pedro</p>
+  </div>
+
   <div class="fotos">
     <img src="IMG_20250302_093121.jpg" class="img-fade">
     <img src="IMG_20250306_212123.jpg" class="img-fade">
     <img src="IMG_20250318_194117.jpg" class="img-fade">
   </div>
 
-  <audio id="musica" loop>
+  <audio id="musica" autoplay loop>
     <source src="hino_de_festa.mp3" type="audio/mpeg">
     Seu navegador não suporta o elemento de áudio.
   </audio>
 
   <script>
-    // Ativa transição das imagens
     window.addEventListener('load', () => {
       document.querySelectorAll('.img-fade').forEach((img, index) => {
         setTimeout(() => {
@@ -74,12 +102,10 @@
         }, index * 500);
       });
 
-      // Tenta tocar a música
       const audio = document.getElementById("musica");
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Se bloqueado, espera interação
           document.addEventListener('click', () => audio.play(), { once: true });
         });
       }
