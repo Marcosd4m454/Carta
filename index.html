@@ -8,16 +8,26 @@
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
-      background-color: #ffe6f0; /* rosa suave */
-      text-align: center;
+      background-color: #ffe6f0;
       color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .fotos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
 
     img {
       width: 90%;
       max-width: 400px;
-      margin: 20px auto;
-      display: block;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       opacity: 0;
@@ -31,31 +41,42 @@
     }
 
     audio {
-      display: none; /* esconde os controles */
+      display: none;
     }
   </style>
 </head>
 <body>
   <h1>Para Camille</h1>
 
-  <img src="IMG_20250302_093121.jpg" class="img-fade">
-  <img src="IMG_20250306_212123.jpg" class="img-fade">
-  <img src="IMG_20250318_194117.jpg" class="img-fade">
+  <div class="fotos">
+    <img src="IMG_20250302_093121.jpg" class="img-fade">
+    <img src="IMG_20250306_212123.jpg" class="img-fade">
+    <img src="IMG_20250318_194117.jpg" class="img-fade">
+  </div>
 
-  <audio autoplay loop>
+  <audio id="musica" loop>
     <source src="hino_de_festa.mp3" type="audio/mpeg">
     Seu navegador não suporta o elemento de áudio.
   </audio>
 
   <script>
-    // Aplica o efeito fade-in nas imagens
+    // Ativa transição das imagens
     window.addEventListener('load', () => {
-      const imagens = document.querySelectorAll('.img-fade');
-      imagens.forEach((img, index) => {
+      document.querySelectorAll('.img-fade').forEach((img, index) => {
         setTimeout(() => {
           img.classList.add('fade-in');
         }, index * 500);
       });
+
+      // Tenta tocar a música
+      const audio = document.getElementById("musica");
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Se bloqueado, espera interação
+          document.addEventListener('click', () => audio.play(), { once: true });
+        });
+      }
     });
   </script>
 </body>
