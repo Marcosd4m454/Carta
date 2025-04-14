@@ -1,98 +1,152 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Para Camille</title>
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>@keyframes flutuar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.coracao {
+  position: fixed;
+  bottom: -40px;
+  font-size: 24px;
+  color: #ff4d88;
+  animation: flutuar 6s ease-in infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
     body {
       margin: 0;
       padding: 20px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffe6f0 url('https://www.transparenttextures.com/patterns/linen.png');
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffe6f0;
       color: #333;
       text-align: center;
-    }h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  animation: fadeIn 2s ease forwards;
-}
+    }
 
-.carta {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  text-align: justify;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  animation: fadeIn 2s ease forwards;
-}
+    h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
 
-.carousel {
-  perspective: 1000px;
-  width: 300px;
-  margin: 0 auto;
-  position: relative;
-  height: 400px;
-}
+    .mensagem {
+      background-color: #fff0f5;
+      border-radius: 16px;
+      padding: 25px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: justify;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      font-size: 1.1em;
+    }
 
-.carousel-images {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  animation: rotate 20s infinite linear;
-}
+    .mensagem p {
+      margin: 0 0 20px;
+    }
 
-.carousel-images img {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+    .mensagem strong {
+      font-weight: 600;
+    }
 
-.carousel-images img:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-.carousel-images img:nth-child(2) { transform: rotateY(120deg) translateZ(300px); }
-.carousel-images img:nth-child(3) { transform: rotateY(240deg) translateZ(300px); }
+    .fotos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
 
-@keyframes rotate {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-}
+    img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    img.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-audio {
-  display: none;
-}
-
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <h1>Para Camille</h1>  <div class="carta">
-    Camille,<br><br>
-    Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso. Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando. Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida. Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.<br><br>
-    Isso aqui é só pra você saber que eu me importo. E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.<br><br>
-    — Pedro
-  </div>  <div class="carousel">
-    <div class="carousel-images">
-      <img src="IMG_20250302_093121.jpg">
-      <img src="IMG_20250306_212123.jpg">
-      <img src="IMG_20250318_194117.jpg">
-    </div>
-  </div>  <audio id="musica" autoplay loop>
+  <h1>Para Camille</h1>
+
+  <div class="mensagem">
+    <p><strong>Camille,</strong></p>
+    <p>
+      Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso.
+      Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando.
+      Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida.
+      Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.
+    </p>
+    <p>
+      Isso aqui é só pra você saber que eu me importo.
+      E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.
+    </p>
+    <p style="text-align: right;">— Pedro</p>
+  </div>
+
+  <div class="fotos">
+    <img src="IMG_20250302_093121.jpg" class="img-fade">
+    <img src="IMG_20250306_212123.jpg" class="img-fade">
+    <img src="IMG_20250318_194117.jpg" class="img-fade">
+  </div>
+
+  <audio id="musica" autoplay loop>
     <source src="hino_de_festa.mp3" type="audio/mpeg">
     Seu navegador não suporta o elemento de áudio.
-  </audio>  <script>
-    const audio = document.getElementById("musica");
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        document.addEventListener('click', () => audio.play(), { once: true });
+  </audio>
+
+  <script>// Cria corações flutuantes
+function criarCoracao() {
+  const coracao = document.createElement("div");
+  coracao.classList.add("coracao");
+  coracao.textContent = "❤";
+
+  coracao.style.left = `${Math.random() * 100}%`;
+  coracao.style.fontSize = `${16 + Math.random() * 20}px`;
+  coracao.style.animationDuration = `${4 + Math.random() * 3}s`;
+
+  document.body.appendChild(coracao);
+
+  setTimeout(() => {
+    coracao.remove();
+  }, 7000);
+}
+
+// Começa a soltar corações a cada intervalo
+setInterval(criarCoracao, 800);
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.img-fade').forEach((img, index) => {
+        setTimeout(() => {
+          img.classList.add('fade-in');
+        }, index * 500);
       });
-    }
-  </script></body>
+
+      const audio = document.getElementById("musica");
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          document.addEventListener('click', () => audio.play(), { once: true });
+        });
+      }
+    });
+  </script>
+</body>
 </html>
