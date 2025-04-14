@@ -2,148 +2,97 @@
 <head>
   <meta charset="UTF-8">
   <title>Para Camille</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Raleway', sans-serif;
-      background-color: #ffe6f0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffe6f0 url('https://www.transparenttextures.com/patterns/linen.png');
       color: #333;
       text-align: center;
-      overflow-x: hidden;
-    }.container {
-  max-width: 700px;
-  margin: 80px auto 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 2s ease;
-  text-align: justify;
-}
-
-.container p {
-  font-size: 1.1em;
-  line-height: 1.6em;
-}
-
-h1 {
+    }h1 {
   font-size: 2em;
-  margin-bottom: 30px;
-  animation: fadeInDown 1.5s ease-out;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease forwards;
 }
 
-.heart-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #ff4d6d;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
-  box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
-}
-
-.heart-btn:hover {
-  transform: scale(1.1);
-}
-
-.heart-btn i {
-  font-style: normal;
-  font-size: 1.5em;
-  color: white;
+.carta {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: justify;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 2s ease forwards;
 }
 
 .carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
+  perspective: 1000px;
+  width: 300px;
+  margin: 0 auto;
+  position: relative;
+  height: 400px;
 }
 
-.carousel img {
-  width: 250px;
-  border-radius: 15px;
-  scroll-snap-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
+.carousel-images {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotate 20s infinite linear;
 }
 
-.carousel img.show {
-  opacity: 1;
-  transform: translateY(0);
+.carousel-images img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-images img:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+.carousel-images img:nth-child(2) { transform: rotateY(120deg) translateZ(300px); }
+.carousel-images img:nth-child(3) { transform: rotateY(240deg) translateZ(300px); }
+
+@keyframes rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: url('https://www.transparenttextures.com/patterns/tiny-grid.png') repeat;
-  opacity: 0.05;
+audio {
+  display: none;
 }
 
   </style>
 </head>
 <body>
-  <div class="particles"></div>  <div class="heart-btn" onclick="tocarMusica()">
-    <i id="icone">▶</i>
-  </div>  <h1>Para Camille</h1>  <div class="container">
-    <p><strong>Camille,</strong></p>
-    <p>Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso. Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando. Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida. Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.</p>
-    <p>Isso aqui é só pra você saber que eu me importo. E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.</p>
-    <p style="text-align: right;">— Pedro</p>
+  <h1>Para Camille</h1>  <div class="carta">
+    Camille,<br><br>
+    Pode parecer exagero colocar tudo isso online, mas eu só queria que fosse impossível você não ver isso. Às vezes eu erro nas palavras, falo sem pensar, e mesmo sem querer, acabo te machucando. Só que, por mais torto que pareça, você tem sido uma coisa boa na minha vida. Tem sido leve, engraçada, inteligente, bonita pra caramba... e mesmo quando ficamos em silêncio, ainda é bom.<br><br>
+    Isso aqui é só pra você saber que eu me importo. E que quero sim tentar fazer isso dar certo. Com respeito, com leveza, e com verdade.<br><br>
+    — Pedro
   </div>  <div class="carousel">
-    <img src="IMG_20250302_093121.jpg">
-    <img src="IMG_20250306_212123.jpg">
-    <img src="IMG_20250318_194117.jpg">
-  </div>  <audio id="musica" loop>
+    <div class="carousel-images">
+      <img src="IMG_20250302_093121.jpg">
+      <img src="IMG_20250306_212123.jpg">
+      <img src="IMG_20250318_194117.jpg">
+    </div>
+  </div>  <audio id="musica" autoplay loop>
     <source src="hino_de_festa.mp3" type="audio/mpeg">
-    Seu navegador não suporta o áudio.
+    Seu navegador não suporta o elemento de áudio.
   </audio>  <script>
-    function tocarMusica() {
-      const audio = document.getElementById('musica');
-      const icone = document.getElementById('icone');
-      if (audio.paused) {
-        audio.play();
-        icone.textContent = '⏸';
-      } else {
-        audio.pause();
-        icone.textContent = '▶';
-      }
-    }
-
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.carousel img').forEach((img, i) => {
-        setTimeout(() => img.classList.add('show'), i * 500);
+    const audio = document.getElementById("musica");
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        document.addEventListener('click', () => audio.play(), { once: true });
       });
-    });
+    }
   </script></body>
 </html>
